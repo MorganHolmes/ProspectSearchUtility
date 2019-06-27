@@ -1,0 +1,58 @@
+- 0.00.038 - added unleashed and prosect headers to the external CSS and added a border-radius
+- 0.00.039 - add basic Unleashed pagnation support
+- 0.00.040 - Increased Unleashed pagination speed. Now gets 1000 items per page
+- 0.00.041 - added another dropdown menu ready for search type
+- 0.00.041 - Changes to the header. Adding more styling
+- 0.00.043 - added a question mark div to the header which calls a function
+- 0.00.044 - swapped around the unleashed API key and ID boxes
+- 0.00.046 - Added PS Support twitter and unleashed twitter timelines
+- 0.00.050 - Allows you to only search one of the API's at a time or both
+- 0.00.051 - Added a new box and design around the search
+- 0.00.053 - Added a new button for making the search form visible
+- 0.00.054 - Improved functionality for hidding the search form
+- 0.00.056 -  Added a hide feature for the search form
+- 0.00.057 - Updated the fonts in the search box to bold
+- 0.00.058 - Added title tags to the titles in the search form 
+- 0.00.059 - Added an error message if the query fails to get an opco
+- 0.00.060 - Added a new console log for if the opco query fails
+- 0.00.062 - Added error message and console log if the warehouse search fails 
+- 0.00.064 - Added a close button on the error message banner
+- 0.00.068 -  Added a new page which is going to be used for guides
+- 0.00.069 - Cleared the guide page
+- 0.00.070 - Small fixes to the guide page
+- 0.00.072 - Added video guide for searching the Prospect API
+- 0.00.074 - Cleaned up some old/bad comments
+- 0.00.080 - Moved the javascript to an external javascript file called stockOnHand.js
+- 0.00.081 - Made the version number a global variable
+- 0.00.083 - Added a star favicon
+- 0.00.084 - Redesigned the search button
+- 0.00.085 - Added a Dear Inventory header
+- 0.00.087 - Added dear inventory options to the drop down menu
+- 0.00.090 - Added dear inventory boxes in the search box
+- 0.00.092 - Added dear inventory to the search form get function
+- 0.00.093 - Updated the dear inventory <p> for the product availablity end point
+- 0.00.095 - Added the dear inventory stock search function
+- 0.01.095 - Completed the untested support for dear inventory
+- 0.01.096 - Added sledger button
+- 0.01.098 - Added the sledger search box
+- 0.01.099 - Add JS for the search boxes
+- 0.01.100 - Added sledger search box design
+- 0.01.105 - Started migrated the version to the new drop down information menu
+- 0.01.108 - Major changes to the information menu
+- 0.01.110 - Added information menu logic
+- 0.01.111 - Updated the guides menu to include the new information menu
+- 0.01.112 - Adjustment to the title
+- 0.01.117 - Cin7 visuals + clean up/bug fixes
+- 0.01.119 - Adding to the sledger search function
+- 0.01.125 - Adding support for getting the sledger opco
+- 0.02.126 - Add PS sledger search support
+- 0.03.126 - Added discord chat
+- 0.03.131 - Added links to our integration partners websites
+- 0.04.135 - Added Unleashed sledger search
+- 0.04.138 - Added Prospect Status page
+- 0.04.139 - Updated the Guide header
+- 0.05.139 - Added a settings page
+- 0.05.145 - Added a beta version of themes
+- 0.05.146 - Changes the dark theme font color for the headers
+- 0.05.150 - Added new darkred theme
+- 0.05.152 - Added the development theme
