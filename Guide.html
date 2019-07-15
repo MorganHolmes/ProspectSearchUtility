@@ -1,0 +1,55 @@
+<!--Stock Utility By MWH-->
+<!--Development Version 0.01.095-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prospect Search Utility Development</title>
+<meta http-equiv="refresh" content="580"/>
+<script type="text/javascript" src="node_modules\crypto-js\crypto-js.js"></script>
+<link id="styleSheet" rel="stylesheet" type = "text/css" href="houseStyle.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript" src="stockOnHand.js"></script>
+<link rel="shortcut icon" type="image/png" href="star.png"/>
+<!--Status Page-->
+<!-- Required for IE11 Only -->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> 
+
+<!-- Standard dependencies -->
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script> 
+<script src="https://unpkg.com/@statuspage/status-widget/dist/index.js"></script> 
+
+
+</head>
+	<body onload="checkStyleSheet()">
+		<center>
+		<!--Website header-->
+		<header id="header">
+			<a href="UnleashedStockOnHand.html"> <h2  style="float:left;width:30%">Prospect Search Utility Development</h2></a>
+			<div id="headerQuestionMark"><h2 id="questionMark" onClick="getInformationMenu()">|||</h2>
+				<div id="informationDropDown">
+					<p><b>Created By MWH</b></p>
+					<p id="informationVersion">Build: </p>
+					<p id="informationLastSearch">Last Search: </p>
+					<p><b>Prospect Status:</b></p>
+					<statuspage-widget src="https://status.prospect365.com/"></statuspage-widget>
+					<b><a href="https://login.prospect365.com/sts/login?wctx=1&signin=19c41fa5e4fd3f40b1d0185225f9e2c3" target="_blank"><p id="prospectLogin">Prospect Login</p></a></b>
+					<b><a href="https://go.unleashedsoftware.com/v2/Account/LogOn?ReturnUrl=%2Fv2&utm_source=adwords&utm_term=&utm_campaign=%5BG%5D+DSA+-+UK&utm_medium=ppc&hsa_ver=3&hsa_kw=&hsa_src=g&hsa_cam=1039441623&hsa_net=adwords&hsa_acc=5012851927&hsa_mt=b&hsa_grp=50591493563&hsa_tgt=dsa-19959388920&hsa_ad=245897801494&gclid=EAIaIQobChMI4tWIucLr4gIVyb3tCh3eyw8rEAAYASAAEgJ-N_D_BwE" target="_blank"><p id="unleashedLogin">Unleashed Login</p></a></b>
+					<b><a href="https://inventory.dearsystems.com/Account/Login" target="_blank"><p id="dearInventoryLogin">DearInventory Login</p></a></b>
+					<b><a href="https://auth.cin7.com/account/login?returnUrl=%2Fconnect%2Fauthorize%2Flogin%3Fclient_id%3DCloudImplicit%26response_mode%3Dform_post%26response_type%3Did_token%2520token%26scope%3Dopenid%2520profile%2520email%2520cin7Roles%26state%3DOpenIdConnect.AuthenticationProperties%253DHwVmUGFsZl_n7hCHs5Rd_iwrNfloW9NdNPUT3v-2KoV1eS_0vY9hOSOMg7gFh48wnTXLDDTf1QCnyyVyj4LV1SBnV0_iO76yNhMPSHPQBtu0zdIr57357Z-1ljUhEQKf%26nonce%3D636962001109274435.YmZlY2U3MWMtYmIzZi00MjcyLWE2MGEtNWU4NWNlNjk2Yjc0OGM1YmQ1MDYtMmYxMy00MGE2LTgzMjgtNmE2N2Y4MTFkMGIz%26redirect_uri%3Dhttps%253A%252F%252Fgo.cin7.com%252FCloud%252F%26post_logout_redirect_uri%3Dhttps%253A%252F%252Fgo.cin7.com%252FCloud%252F" target="_blank"><p id="prospectLogin">Cin7 Login</p></a></b>
+					<b><a href="Settings.html"><p id="settingTitle" >Settings</p></a></b>
+				</div>
+			</div>
+			<a href="Guide.html"> <div id="headerQuestionMark" ><h2 id="questionMark" >Guides</h2></div></a>
+		</header>
+		
+			
+		
+		<h2>Searching The Prospect API</h2>
+		<video width="50%" height="500" controls>
+		  <source src="guideVideos/prospectSearch.mp4" type="video/mp4">
+		</video>
+				
+		</center>
+		
+	</body>
+</html>
