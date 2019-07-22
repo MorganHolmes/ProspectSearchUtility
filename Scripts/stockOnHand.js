@@ -24,45 +24,45 @@ function updateSettings(form){
 	if (userSelectedTheme == "Light"){
 		// Check browser support
 		localStorage.setItem("theme", "Light");
-		swapStyleSheet("houseStyle.css");
+		swapStyleSheet("Styles\\houseStyle.css");
 	}
 	if(userSelectedTheme == "Dark"){
 		localStorage.setItem("theme", "Dark");
-		swapStyleSheet("houseStyleDark.css");
+		swapStyleSheet("Styles\\houseStyleDark.css");
 	}
 	if(userSelectedTheme == "DarkRed"){
 		localStorage.setItem("theme", "DarkRed");
-		swapStyleSheet("houseStyleDarkRed.css");
+		swapStyleSheet("Styles\\houseStyleDarkRed.css");
 	}
 	if(userSelectedTheme == "Development"){
 		localStorage.setItem("theme", "Development");
-		swapStyleSheet("houseStyleDevelopment.css");
+		swapStyleSheet("Styles\\houseStyleDevelopment.css");
 	}
 }
 function checkStyleSheet(){
 	var userSelectedTheme2 = localStorage.getItem("theme");
 	console.log("User Selected Theme: " + userSelectedTheme2);
 	if(userSelectedTheme2 == 'Dark'){
-		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);  
-		swapStyleSheet("houseStyleDark.css");
-		
+		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);
+		swapStyleSheet('Styles\\houseStyleDark.css');
+
 	}
 	if(userSelectedTheme2 == 'DarkRed'){
-		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);  
-		swapStyleSheet("houseStyleDarkRed.css");
-		
+		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);
+		swapStyleSheet("Styles\\houseStyleDarkRed.css");
+
 	}
 	if (userSelectedTheme2 == 'Light'){
-		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css); 
-		swapStyleSheet("houseStyle.css");
+		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);
+		swapStyleSheet("Styles\\houseStyle.css");
 	}
 	if (userSelectedTheme2 == 'Development'){
-		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css); 
-		swapStyleSheet("houseStyleDevelopment.css");
+		//document.getElementById("styleSheet").setAttribute("href", houseStyleDark.css);
+		swapStyleSheet("Styles\\houseStyleDevelopment.css");
 	}
 }
 function swapStyleSheet(sheet) {
-    document.getElementById("styleSheet").setAttribute("href", sheet);  
+    document.getElementById("styleSheet").setAttribute("href", sheet);
 }
 
 //Shows the search box
@@ -72,7 +72,7 @@ function showSearch(){
 	}
 //Hides the search box
 function hideSearch(){
-	
+
 	document.getElementById("searchForm").style.display = "none";
 }
 //Shows the search box
@@ -89,11 +89,11 @@ function getInformationMenu(){
 	//alert("Build Version " + versionNumber);
 	var currentInformationMenuState = document.getElementById("informationDropDown").style.display;
 	if (currentInformationMenuState == "inline-block"){
-		document.getElementById("informationDropDown").style.display = "none"; 
+		document.getElementById("informationDropDown").style.display = "none";
 	}else{
 		document.getElementById("informationVersion").innerHTML = "<b>Build: " + versionNumber + "</b>";
 		document.getElementById("informationLastSearch").innerHTML = "<b>Last Search: " + lastSearchProduct + "</b>";
-		document.getElementById("informationDropDown").style.display = "inline-block";  
+		document.getElementById("informationDropDown").style.display = "inline-block";
 	}
 }
 
@@ -104,14 +104,14 @@ function getSledgerInfo(form){
 	//Unleashed
 	var apiKey = form.apiInputBox.value;
 	var apiId = form.apiIdInputBox.value;
-	
+
 	//Search version
 	var userSelectedSearch = form.sledgerSearchVersion.value;
-	
+
 	//Selected Opco
 	var userSelectedOpco = form.selectSledgerOpco.value;
 
-	
+
 	//Console logs for what the user inputted
 	console.log("Selected Search Version: " + userSelectedSearch);
 	console.log("Entered Unleashed API ID: " + apiId);
@@ -121,7 +121,7 @@ function getSledgerInfo(form){
 
 	//Alert for the product being search for
 	alert ("Searching For: " + userSelectedSledger);
-	
+
 	//Search version logic
 	if (userSelectedSearch == 'Prospect'){
 		//Call the Prospect function
@@ -142,12 +142,12 @@ function getSledgerInfo(form){
 //Gets prospect sledgers
 function getProspectSledger(pat,userSelectedSledger,userSelectedOpco){
 	var request = new XMLHttpRequest()
-	
+
 	//The prospect end point to get the product for
 	var psEndPoint = "('" + userSelectedOpco + "','" + userSelectedSledger + "')";
-	
+
 	console.log("Prospect End Point Search: " + psEndPoint);
-	
+
 	request.open('GET', "https://api-v1.prospect365.com/SalesLedgers" + psEndPoint, true);
 	request.setRequestHeader('Authorization', 'Bearer ' + pat);
 	request.onload = function() {
@@ -190,7 +190,7 @@ function getProspectSledger(pat,userSelectedSledger,userSelectedOpco){
 			psSledgerPopulate();
 			return;
 		}
-		
+
 		function psSledgerPopulate(){
 			document.getElementById("psProductItemId").innerHTML = "";
 			document.getElementById("psWarehouseCode").innerHTML = "";
@@ -198,8 +198,8 @@ function getProspectSledger(pat,userSelectedSledger,userSelectedOpco){
 			document.getElementById("psDecimalFreeStock").innerHTML = "";
 			document.getElementById("psDecimalSalesOrders").innerHTML = "";
 			document.getElementById("psTotalAvailableDecimal").innerHTML = "";
-			
-			
+
+
 			document.getElementById("psOpCo").innerHTML = "OPCO: " + data.value[0].OperatingCompanyCode;
 			document.getElementById("psSledgerId").innerHTML = "Sales Ledger ID: " + data.value[0].SalesLedgerId;
 			document.getElementById("psSledgerName").innerHTML = "Sales Ledger Name: " + data.value[0].Name;
@@ -214,7 +214,7 @@ function getProspectSledger(pat,userSelectedSledger,userSelectedOpco){
 			document.getElementById("psBalance").innerHTML = "Balance: " + data.value[0].Balance;
 			document.getElementById("psCreditLimit").innerHTML = "Credit Limit: " + data.value.CreditLimit;
 			document.getElementById("psClosed").innerHTML = "Closed: " + data.value.Closed;
-			
+
 		}
 	}
 	request.send()
@@ -226,7 +226,7 @@ function getSledgerPat(form){
 	var pat = form.patInputBox.value;
 	console.log("Entered PAT Token: " + pat);
 	var opcoarray = getPSOpco(pat,"Sledger");
-	
+
 }
 
 //Gets unleashed sledgers
@@ -234,14 +234,14 @@ function getUnleashedSledger(userSelectedSledger,apiId,apiKey,page){
 	console.log("Searching Unleashed For Ledger Data: " + userSelectedSledger);
 	// Initialize variables and get values from the field
 	var xhr;
-	
+
 	// build the url based on the different parameters
 	var urlParam = "pageSize=1000";
 	//var urlParam = "";
-	
+
 	var pageNumber = page;
 	console.log(pageNumber);
-		
+
 	// Final url is built
 	var url = "https://api.unleashedsoftware.com/" + "Customers/" + page +"?" + urlParam;
 
@@ -250,7 +250,7 @@ function getUnleashedSledger(userSelectedSledger,apiId,apiKey,page){
 	var hash = CryptoJS.HmacSHA256(urlParam, apiKey);
 	// That hash generated has to be set into base64
 	var hash64 = CryptoJS.enc.Base64.stringify(hash);
-	
+
 	//Outputs the hash to the console.
 	//console.log(hash64);
 
@@ -272,8 +272,8 @@ function getUnleashedSledger(userSelectedSledger,apiId,apiKey,page){
 			console.log(data);
 			//outputProductDetails(data);
 			searchUnleashedSledgerData(data,userSelectedSledger,pageNumber,apiId,apiKey);
-			
-			
+
+
 			//OLD
 			//console.log(data.Items[0].ProductCode)
 			//console.log(JSON.stringify(tmpHTML, false, 2));
@@ -282,7 +282,7 @@ function getUnleashedSledger(userSelectedSledger,apiId,apiKey,page){
 			console.log("error: " + data + " status: " + status + " er:" + er);
 			//console.log(JSON.stringify(data.responseJSON, false, 2));
 		});
-	
+
 }
 
 //Search the sledger data
@@ -295,7 +295,7 @@ function searchUnleashedSledgerData(data,userSelectedSledger,page,apiId,apiKey){
 	//for (x=1; x<=data.Pagination.NumberOfPages;x++){
 	for (i=0; i <= dataLength; i++){
 		var currentSledger = data.Items[i].CustomerCode;
-		
+
 		if (currentSledger == userSelectedSledger){
 			outputUnleashedSledgerDetails(data,i)
 			//If a product is found this returns from the function
@@ -331,9 +331,9 @@ function searchUnleashedSledgerData(data,userSelectedSledger,page,apiId,apiKey){
 			document.getElementById("unleashedContactFirstName").innerHTML = "";
 			document.getElementById("unleashedContactSurname").innerHTML = "";
 			}
-	
-	
-	
+
+
+
 }
 
 function outputUnleashedSledgerDetails(data,i){
@@ -374,12 +374,12 @@ function getProductCode (form) {
 	//Warehouse and opco
 	var userSelectedWarehouse = form.selectNumber.value;
 	var userSelectedOpco = form.selectOpco.value;
-	
+
 	var userSelectedSearch = form.searchVersion.value;
 	//Dear Inventory
 	var dearAccountId = form.dearAccountInputBox.value;
 	var dearApiKey = form.dearAPIInputBox.value;
-	
+
 	//Console logs for what the user inputted
 	console.log("Selected Search Version: " + userSelectedSearch);
 	console.log("Selected Opco: " + userSelectedOpco);
@@ -389,13 +389,13 @@ function getProductCode (form) {
 	console.log("Entered PAT: " + pat);
 	console.log("Entered DearInventory Account ID: " + dearAccountId);
 	console.log("Entered DearInventory API Key: " + dearApiKey);
-	
+
 	//Alert for the product being search for
 	alert ("Searching For: " + userProductCode);
-	
+
 	//Sets the last searched product
 	lastSearchProduct = userProductCode;
-	
+
 	//Search version logic
 	if (userSelectedSearch == 'Prospect'){
 		//Call the Prospect function
@@ -422,7 +422,7 @@ function getProductCode (form) {
 		dearInventoryStockSearch(userProductCode,dearAccountId,dearApiKey,1);
 		//Calls the Prospect function
 		getPSData(userProductCode,pat,userSelectedWarehouse,userSelectedOpco);
-	}		
+	}
 }
 
 //Gets the PAT's from the search field
@@ -431,19 +431,19 @@ function getPat(form){
 	console.log("Entered PAT Token: " + patDropDown);
 	var warehousesArray = getPSWarehouses(patDropDown);
 	var opcoarray = getPSOpco(patDropDown,"Stock");
-	
-}
-	
 
-	
+}
+
+
+
 //Gets PS Warehouses
 function getPSWarehouses(pat){
-	var request = new XMLHttpRequest()		
+	var request = new XMLHttpRequest()
 	request.open('GET', "https://api-v1.prospect365.com/Warehouses/", true);
 	request.setRequestHeader('Authorization', 'Bearer ' + pat);
 	request.send();
 	request.onload = function() {
-	  
+
 
 	  if (request.status >= 200 && request.status < 400) {
 		console.log("Connection To ProspectSoft Is Successful");
@@ -456,7 +456,7 @@ function getPSWarehouses(pat){
 		for(i=0;i<data.value.length;i++){
 			//Inserts into the warehousesArry the warehouse code
 			warehousesArray[i] = data.value[i].Code;
-		}	
+		}
 		console.log(warehousesArray);
 		setWarehouseDropdown(warehousesArray);
 		return (warehousesArray);
@@ -465,7 +465,7 @@ function getPSWarehouses(pat){
 			displayErrorMessage("Error " +request.status+ ": Failed To Get Prospect Warehouses");
 			}
 	}
-		
+
 	}
 
 //Adds warehouses to the dropdown menu
@@ -478,8 +478,8 @@ function setWarehouseDropdown(warehousesArray){
 		x.add(option);
 		}
 	}
-	
-	
+
+
 //Adds OPCO's to the dropdown menus
 function setOpcoDropdown(opcoArray,elementId){
 	var x = document.getElementById(elementId);
@@ -492,7 +492,7 @@ function setOpcoDropdown(opcoArray,elementId){
 	}
 //Gets PS opcos
 function getPSOpco(pat,searchVersion){
-	var request = new XMLHttpRequest()		
+	var request = new XMLHttpRequest()
 	request.open('GET', "https://api-v1.prospect365.com/Homecurrencies/", true);
 	request.setRequestHeader('Authorization', 'Bearer ' + pat);
 	request.send();
@@ -508,7 +508,7 @@ function getPSOpco(pat,searchVersion){
 		for(i=0;i<data.value.length;i++){
 			//Inserts into the opcosArry the warehouse code
 			opcoArray[i] = data.value[i].OperatingCompanyCode;
-		}	
+		}
 		console.log(opcoArray);
 		if (searchVersion == "Stock"){
 			setOpcoDropdown(opcoArray,"selectOpco");
@@ -522,24 +522,24 @@ function getPSOpco(pat,searchVersion){
 			displayErrorMessage("Error " +request.status+ ": Failed To Get Prospect opco's");
 			}
 	}
-		
+
 }
 
-	
+
 //Unleashed request
 //window.onload = getResponse();
 function getResponse(userProductCode,apiId,apiKey,page) {
 	console.log("Searching For Stock Data About Product: " + userProductCode);
 	// Initialize variables and get values from the field
 	var xhr;
-	
+
 	// build the url based on the different parameters
 	var urlParam = "ProductCode="+userProductCode+"&pageSize=1000";
 	//var urlParam = "";
-	
+
 	var pageNumber = page;
 	console.log(pageNumber);
-		
+
 	// Final url is built
 	var url = "https://api.unleashedsoftware.com/" + "StockOnHand/" + page +"?" + urlParam;
 
@@ -548,7 +548,7 @@ function getResponse(userProductCode,apiId,apiKey,page) {
 	var hash = CryptoJS.HmacSHA256(urlParam, apiKey);
 	// That hash generated has to be set into base64
 	var hash64 = CryptoJS.enc.Base64.stringify(hash);
-	
+
 	//Outputs the hash to the console.
 	//console.log(hash64);
 
@@ -570,8 +570,8 @@ function getResponse(userProductCode,apiId,apiKey,page) {
 			console.log(data);
 			//outputProductDetails(data);
 			searchData(data,userProductCode,pageNumber,apiId,apiKey);
-			
-			
+
+
 			//OLD
 			//console.log(data.Items[0].ProductCode)
 			//console.log(JSON.stringify(tmpHTML, false, 2));
@@ -626,9 +626,9 @@ function searchData(data,userProductCode,page,apiId,apiKey){
 			document.getElementById("unleashedContactFirstName").innerHTML = "";
 			document.getElementById("unleashedContactSurname").innerHTML = "";
 			}
-	
-	
-	
+
+
+
 }
 
 function outputProductDetails(data,i){
@@ -646,7 +646,7 @@ function outputProductDetails(data,i){
 	document.getElementById("availableQty").innerHTML = "Available Qty: " + data.Items[i].AvailableQty;
 	//Outputs the allocated qty
 	document.getElementById("allocatedQty").innerHTML = "Allocated Qty: " + data.Items[i].AllocatedQty;
-	
+
 	document.getElementById("unleashedCustomerCode").innerHTML = "";
 	document.getElementById("unleashedCustomerName").innerHTML = "";
 	document.getElementById("unleashedCustomerType").innerHTML = "";
@@ -669,14 +669,14 @@ function dearInventoryStockSearch(userProductCode,dearAccountId, dearApiKey,page
 	console.log("Searching Dear Inventory For Stock Data About Product: " + userProductCode);
 	// Initialize variables and get values from the field
 	var xhr;
-	
+
 	// build the url based on the different parameters
 	var urlParam = "ProductCode="+userProductCode+"&pageSize=1000";
 	//var urlParam = "";
-	
+
 	var pageNumber = page;
 	console.log(pageNumber);
-		
+
 	// Final url is built
 	var url = " https://inventory.dearsystems.com/ExternalApi/v2/ref/productavailability?Page="+page+"&Limit=1000"
 
@@ -698,8 +698,8 @@ function dearInventoryStockSearch(userProductCode,dearAccountId, dearApiKey,page
 			console.log(data);
 			//outputProductDetails(data);
 			searchDearInventoryDataData(data,userProductCode,pageNumber,dearAccountId,dearApiKey);
-			
-			
+
+
 			//OLD
 			//console.log(data.Items[0].ProductCode)
 			//console.log(JSON.stringify(tmpHTML, false, 2));
@@ -709,7 +709,7 @@ function dearInventoryStockSearch(userProductCode,dearAccountId, dearApiKey,page
 			//console.log(JSON.stringify(data.responseJSON, false, 2));
 		});
 }
-		
+
 
 function searchDearInventoryData(data,userProductCode,page,dearAccountId,dearApiKey){
 	var dataLength = data.Items.length - 1;
@@ -744,9 +744,9 @@ function searchDearInventoryData(data,userProductCode,page,dearAccountId,dearApi
 			document.getElementById("dearOnOrder").innerHTML = "";
 			document.getElementById("dearStockOnHand").innerHTML = "";
 			}
-	
-	
-	
+
+
+
 }
 
 //Output dearInventory data
@@ -767,21 +767,21 @@ function outputDearIventoryDetails(data,i){
 //Prospect request
 function getPSData(userProductCode,pat,warehouse,opco){
 	var request = new XMLHttpRequest()
-	
+
 	//The product the user wants to search for
 	var psProductSearch = userProductCode;
-	
+
 	//The user selected warehouse which we will query for the stock level
 	var userSelectedWarehouse = warehouse;
-	
+
 	//The user selected opco which is used for querying the stock level
 	var userSelectedOpco = opco;
-	
+
 	//The prospect end point to get the product for
 	var psEndPoint = "('" + userSelectedOpco + "','" + psProductSearch + "','" + userSelectedWarehouse + "')";
-	
+
 	console.log("Prospect End Point Search: " + psEndPoint);
-	
+
 	request.open('GET', "https://api-v1.prospect365.com/StockByWarehouses" + psEndPoint, true);
 	request.setRequestHeader('Authorization', 'Bearer ' + pat);
 	request.onload = function() {
@@ -809,7 +809,7 @@ function getPSData(userProductCode,pat,warehouse,opco){
 			populate();
 			return;
 		}
-	
+
 	function populate() {
 		//window.alert(lastSchedule);
 		//window.alert(data.value[lastSchedule].ScheduleId);
@@ -837,7 +837,5 @@ function getPSData(userProductCode,pat,warehouse,opco){
 	}
 
 	request.send()
-	
+
 }
-		
-	

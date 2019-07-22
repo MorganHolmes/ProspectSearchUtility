@@ -6,23 +6,23 @@
 <!--<meta http-equiv="refresh" content="580"/>-->
 <script type="text/javascript" src="node_modules\crypto-js\crypto-js.js"></script>
 <!--External CSS File-->
-<link id="styleSheet" rel="stylesheet" type = "text/css" href="houseStyleDevelopment.css"/>
+<link id="styleSheet" rel="stylesheet" type = "text/css" href="Styles\houseStyleDevelopment.css"/>
 <!--JQuery JavaScript-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <!--External JavaScript file-->
-<script type="text/javascript" src="stockOnHand.js"></script>
+<script type="text/javascript" src="Scripts\stockOnHand.js"></script>
 
 
 <!--Status Page-->
 <!-- Required for IE11 Only -->
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> 
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
 <!-- Standard dependencies -->
-<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script> 
-<script src="https://unpkg.com/@statuspage/status-widget/dist/index.js"></script> 
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.js"></script>
+<script src="https://unpkg.com/@statuspage/status-widget/dist/index.js"></script>
 
 <!--Favicon-->
-<link rel="shortcut icon" type="image/png" href="star.png"/>
+<link rel="shortcut icon" type="image/png" href="Resources\star.png"/>
 
 </head>
 	<!--Call a function to decide what style sheet to use on the page-->
@@ -33,7 +33,7 @@
 			<!--When the this p is pressed, it hides the banner-->
 			<p id="hideX" onClick="hideErrorBanner()" style="float:right;padding-right:2%">X</p>
 			<h2 id="errorMessage">Error Message</h2>
-			
+
 		</div>
 		<!--Website header-->
 		<header id="header">
@@ -70,9 +70,9 @@
 			<!--Button in the header. Once pressed the user can search for stock-->
 			<div id="headerQuestionMark"><h2 id="questionMark" onClick="showSearch()">Stock</h2></div>
 		</header>
-		
-			
-			
+
+
+
 			<!--Stock Form-->
 			<br>
 			<FORM id="searchForm" NAME="myform" ACTION="" METHOD="GET">
@@ -85,12 +85,12 @@
 				<option>Prospect</option>
 				<option>Unleashed</option>
 				<option>DearInventory [BETA]</option>
-				<option>Prospect & DearInventory [BETA]</option> 
+				<option>Prospect & DearInventory [BETA]</option>
 				<option>Cin7 [ALPHA]</option>
 				<option>Cin7 & Prospect [ALPHA]</option>
 				<option>Prospect & Unleashed</option>
 			</select><p title="Enter The Product Code For The Product You Want To Search For"><b>Product Code</b></p>
-			
+
 			<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
 			<!--Drop down menu for selecting the warehouse-->
 			<select id="selectNumber" value="">
@@ -99,11 +99,11 @@
 			<!--Drop down menu for selecting the opco to perform the search on-->
 			<select id="selectOpco" value="">
 				<option>Opco's Below:</option>
-				
+
 			</select>
 			 <br><br>
 			<INPUT id="searchButton" TYPE="button" NAME="button" Value="Search" onClick="getProductCode(this.form)">
-			<p title="Enter A Prospect PAT Token In The Box Below"><b>Prospect PAT Token</b></p></p> <INPUT TYPE="button" NAME="button" Value="Get DropDowns" onClick="getPat(this.form)"> 
+			<p title="Enter A Prospect PAT Token In The Box Below"><b>Prospect PAT Token</b></p></p> <INPUT TYPE="button" NAME="button" Value="Get DropDowns" onClick="getPat(this.form)">
 			<input type="text" name="patInputBox" value="" size="30"><br>
 			<p title="Enter A Unleashed API ID In The Box Below"><b>Unleashed API ID</b></p>
 			<input type="text" name="apiIdInputBox" value="" size="30">
@@ -114,7 +114,7 @@
 			<p title="Enter A DearInventory API Key In The Box Below"><b>DearInventory API Application Key</b></p>
 			<input type="text" name="dearAPIInputBox" value="" size="95">
 			</FORM>
-			
+
 			<!--Sales ledger form-->
 			<br>
 			<FORM id="mySearchForm" NAME="mySledgerForm" ACTION="" METHOD="GET">
@@ -129,20 +129,20 @@
 			</select><p title="Enter The Sales Ledger You Want To Search For"><b>Sales Ledger</b><br><br><INPUT TYPE="text" NAME="sledgerInput" VALUE=""></p>
 			<select id="selectSledgerOpco" value="">
 				<option>Opco's Below:</option>
-				
+
 			</select>
 			<br>
 			<br>
 			<INPUT id="searchButton" TYPE="button" NAME="button" Value="Search" onClick="getSledgerInfo(this.form)">
-			<p title="Enter A Prospect PAT Token In The Box Below"><b>Prospect PAT Token</b></p></p> <INPUT TYPE="button" NAME="button" Value="Get DropDowns" onClick="getSledgerPat(this.form)"> 
+			<p title="Enter A Prospect PAT Token In The Box Below"><b>Prospect PAT Token</b></p></p> <INPUT TYPE="button" NAME="button" Value="Get DropDowns" onClick="getSledgerPat(this.form)">
 			<input type="text" name="patInputBox" value="" size="30"><br>
 			<p title="Enter A Unleashed API ID In The Box Below"><b>Unleashed API ID</b></p>
 			<input type="text" name="apiIdInputBox" value="" size="30">
 			<p title="Enter A Unleashed API Key In The Box Below"><b>Unleashed API Key</b></p>
 			<input type="text" name="apiInputBox" value="" size="95">
 			</FORM>
-			
-			
+
+
 			<!--Unleashed Output-->
 			<div style="float:top">
 			<h2 id="unleashedHeader"><b>Unleashed</b></h2>
@@ -167,7 +167,7 @@
 			<p id="unleashedCountry"></p>
 			<p id="unleashedContactFirstName"></p>
 			<p id="unleashedContactSurname"></p>
-			
+
 			<!--DEAR Inventoryt Output-->
 			<div style="float:top">
 			<h2 id="dearHeader"><b>DearInventory [BETA]</b></h2>
@@ -181,11 +181,11 @@
 			<p id="dearAvailable"></p>
 			<p id="dearOnOrder"></p>
 			<p id="dearStockOnHand"></p>
-			
+
 			<!--Cin7 Output-->
 			<div style="float:top">
 			<h2 id="cinHeader"><b>Cin7 [ALPHA]</b></h2>
-			
+
 			<!--Prospect Output-->
 			<h2 id="prospectHeader"><b>Prospect</b></h2>
 			<p id="psProductItemId"></p>
@@ -208,21 +208,21 @@
 			<p id="psBalance"></p>
 			<p id="psCreditLimit"></p>
 			<p id="psClosed"></p>
-			
+
 			</div>
-			
-			
+
+
 			<!--PS Hosting twitter-->
 			<a class="twitter-timeline" data-width="500" data-height="400" data-theme="dark" data-link-color="#9266CC" href="https://twitter.com/PS_Hosting?ref_src=twsrc%5Etfw">Tweets by PS_Hosting</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			<!--Unleashed hosting-->
 			<a class="twitter-timeline" data-width="500" data-height="400" data-theme="dark" data-link-color="#9266CC" href="https://twitter.com/unleashedteam?ref_src=twsrc%5Etfw">Tweets by unleashedteam</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			
+
 			<!--Discord-->
 			<!--Embed chat-->
 			<!--<iframe src="https://titanembeds.com/embed/589430572237979664" height="400" width="500" frameborder="0"></iframe>-->
-			
-			
+
+
 		</center>
-	</body>	
+	</body>
 
 </html>
