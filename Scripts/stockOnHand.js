@@ -535,7 +535,7 @@ function getResponse(userProductCode,apiId,apiKey,page) {
 
 	// build the url based on the different parameters
 	//var urlParam = "ProductCode="+userProductCode+"&pageSize=1000";
-	var urlParam = "";
+	var urlParam = "pageSize=1000";
 	//var urlParam = "";
 
 	var pageNumber = page;
