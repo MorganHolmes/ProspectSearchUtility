@@ -198,7 +198,7 @@ function getProspectSledger(pat,userSelectedSledger,userSelectedOpco){
 			document.getElementById("psDecimalFreeStock").innerHTML = "";
 			document.getElementById("psDecimalSalesOrders").innerHTML = "";
 			document.getElementById("psTotalAvailableDecimal").innerHTML = "";
-
+			document.getElementById("psQtyAvailable").innerHTML="";
 
 			document.getElementById("psOpCo").innerHTML = "OPCO: " + data.value[0].OperatingCompanyCode;
 			document.getElementById("psSledgerId").innerHTML = "Sales Ledger ID: " + data.value[0].SalesLedgerId;
@@ -534,7 +534,8 @@ function getResponse(userProductCode,apiId,apiKey,page) {
 	var xhr;
 
 	// build the url based on the different parameters
-	var urlParam = "ProductCode="+userProductCode+"&pageSize=1000";
+	//var urlParam = "ProductCode="+userProductCode+"&pageSize=1000";
+	var urlParam = "pageSize=1000";
 	//var urlParam = "";
 
 	var pageNumber = page;
@@ -804,6 +805,7 @@ function getPSData(userProductCode,pat,warehouse,opco){
 		document.getElementById("psDecimalFreeStock").innerHTML = "";
 		document.getElementById("psDecimalSalesOrders").innerHTML = "";
 		document.getElementById("psTotalAvailableDecimal").innerHTML = "";
+		document.getElementById("psQtyAvailable").innerHTML="";
 		return;
 		}else{
 			populate();
@@ -819,6 +821,7 @@ function getPSData(userProductCode,pat,warehouse,opco){
 		document.getElementById("psDecimalFreeStock").innerHTML = "Free Stock: " + data.value[0].DecimalFreeStock;
 		document.getElementById("psDecimalSalesOrders").innerHTML = "Sales Orders: " + data.value[0].DecimalSalesOrders;
 		document.getElementById("psTotalAvailableDecimal").innerHTML = "Total Available: " + data.value[0].TotalAvailableDecimal;
+		document.getElementById("psQtyAvailable").innerHTML = "Quantity Available: " + data.value[0].QuantityAvailableDecimal;
 		document.getElementById("psOpCo").innerHTML = "";
 		document.getElementById("psSledgerId").innerHTML = "";
 		document.getElementById("psSledgerName").innerHTML = "";
